@@ -1,0 +1,19 @@
+.386
+.model flat, stdcall;
+
+option casemap:nome
+
+include \masm32\include\msvcrt.inc
+includelib \masm32\lib\msvcrt.lib
+extern printf:proc
+
+.data
+    fmt db "%s", 0Ah ;formato
+    nome db "ÏtaloCobains" ;meu nome
+
+.code
+    start:
+        push offset nome
+        push offset fmt
+        call printf
+    end start
